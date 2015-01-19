@@ -14,11 +14,32 @@ function initializePage() {
 		
 		// Slide 45
 		$("#testjs").text("Mariano");
+		
+		// Slide 48
+		//$(".jumbotron p").addClass("active");
+		
+		// Slide 50
+		$(".jumbotron p").toggleClass("active");
+
 	});
+	
 
 	// Add any additional listeners here
 	// example: $("#div-id").click(functionToCall);
 	$("a.thumbnail").click(projectClick); // Slide 29
+	
+	$("#submitBtn").click(updateProject);  		
+	
+}
+
+function updateProject(e) {
+    var projectID = $('#project').val();
+	$(projectID).animate({
+      	width: $('#width').val()
+     });
+
+	 var newText = $('#description').val();
+	 $(projectID + " .project-description").text(newText);
 }
 
 
@@ -38,7 +59,7 @@ function projectClick(e) {
 	var jumbotronHeader = $(".jumbotron h1");
 	jumbotronHeader.text(projectTitle);
 
-    $(this).css("background-color", "#7fff00");
+    //$(this).css("background-color", "#7fff00");
     
     // Slide 44
     var containingProject = $(this).closest(".project");
@@ -50,6 +71,14 @@ function projectClick(e) {
 
     } else {
 
-       description.html("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
+       //description.html("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
+       
+       // Slide 52
+       //$("#myelement").hide();
+       //$("#myelement").show();
+       //$("#myelement").fadeIn();
+       //$("#myelement").fadeOut();
+
+
     }
 }
